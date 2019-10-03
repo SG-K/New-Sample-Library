@@ -16,6 +16,7 @@ public class TextUtils {
         public fun printTimberLog(msg : String){
 
             Timber.v("startfish_log %s",msg)
+            Log.v("startfish_log"," "+msg)
         }
     }
 
