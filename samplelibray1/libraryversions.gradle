@@ -1,0 +1,129 @@
+ext {
+
+    def timber_version = '4.7.1'
+    def app_compact_version = '1.1.0'
+    def constraint_layout_version = '1.1.3'
+    def rxJavaVersion = '2.1.14'
+    def rxAndroidVersion = '2.0.2'
+    def retrofit = '2.4.0'
+    def rxKotlin = '2.2.0'
+    def rxPermissions = '0.10.2'
+    def rxBindingDesign = '0.4.0'
+    def lifecycleArchVersion = '1.1.1'
+    def daggerVersion = '2.17'
+    def okhttpLoggingInterceptorVersion = '3.9.0'
+    def moshi = '1.8.0'
+    def okHttp = '3.11.0'
+    def glide = '4.8.0'
+    def stetho = '1.5.0'
+    def progressWheel = '1.7'
+    def multidex = '2.0.1'
+    def playServicesLocation = '17.0.0'
+
+    buildConfigVersion = [
+            compileSdkVersion : 28,
+            buildToolsVersion : "28.0.3",
+            minSdkVersion : 19,
+            targetSdkVersion : 28,
+            versionCode : 1,
+            versionName : "1.0"
+    ]
+
+    logDependencies = [
+            timber: "com.jakewharton.timber:timber:$timber_version"
+    ]
+
+    multidexDependencies = [
+            multidex: "androidx.multidex:multidex:$multidex"
+    ]
+
+    layoutDependencies = [
+            contraintLayout: "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    ]
+
+    supportDependencies = [
+            appcompat: "androidx.appcompat:appcompat:$app_compact_version",
+            ktxCore : "androidx.core:core-ktx:$app_compact_version"
+    ]
+
+    rxDependencies = [
+            rxjava: "io.reactivex.rxjava2:rxjava:$rxJavaVersion",
+            rxandroid: "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion",
+            rxkotlin: "io.reactivex.rxjava2:rxkotlin:$rxKotlin",
+            rxPermissions: "com.github.tbruyelle:rxpermissions:$rxPermissions",
+            rxbinding: "com.jakewharton.rxbinding2:rxbinding:$rxKotlin",
+            rxbindingDesign: "com.jakewharton.rxbinding:rxbinding-design:$rxBindingDesign"
+    ]
+
+    lifeCycleDependencies = [
+            lifecycleExtensions : "android.arch.lifecycle:extensions:$lifecycleArchVersion",
+            annotationProcessor : "android.arch.lifecycle:compiler:$lifecycleArchVersion",
+            compiler : "android.arch.lifecycle:compiler:$lifecycleArchVersion"
+    ]
+
+    daggerDependencies = [
+            daggerAndroid : "com.google.dagger:dagger-android:$daggerVersion",
+            daggerSupport : "com.google.dagger:dagger-android-support:$daggerVersion",
+            daggerCompiler : "com.google.dagger:dagger-compiler:$daggerVersion",
+            daggerProcesor : "com.google.dagger:dagger-android-processor:$daggerVersion"
+    ]
+
+    retrofitDependencies = [
+            rxRetrofit: "com.squareup.retrofit2:adapter-rxjava2:$retrofit",
+            retrofit: "com.squareup.retrofit2:retrofit:$retrofit",
+            okhttp: "com.squareup.okhttp3:okhttp:$okHttp",
+            moshi: "com.squareup.retrofit2:converter-moshi:$retrofit",
+            retrofitIntercepter: "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
+    ]
+
+    glideDependencies = [
+            glide: "com.github.bumptech.glide:glide:$glide",
+            glideCompiler: "com.github.bumptech.glide:compiler:$glide"
+    ]
+
+    moshiDependencies = [
+            moshi : "com.squareup.moshi:moshi:$moshi",
+            moshiKotlin : "com.squareup.moshi:moshi-kotlin:$moshi",
+            moshiCodegen : "com.squareup.moshi:moshi-kotlin-codegen:$moshi"
+    ]
+
+    otherDependencies = [
+            stetho : "com.facebook.stetho:stetho-okhttp3:$stetho",
+            preogresWheel : "com.pnikosis:materialish-progress:$progressWheel"
+    ]
+
+    playServiceDependencies = [
+            location : "com.google.android.gms:play-services-location:$playServicesLocation"
+    ]
+
+    /*Production*/
+    def baseurl = "\"https://startfish.co/v1/\""
+    def host = "\"starfish.production.co\""
+    def securityKey = "\"HFHIDBDGE_FHHEFHDF-DHHBDJJ\""
+
+    /*Stagging*/
+    def baseurl_stg = "\"https://startfish.co/v1/\""
+    def host_stg = "\"starfish.production.co\""
+    def securityKey_stg = "\"HFHIDBDGE_FHHEFHDF-DHHBDJJ\""
+
+    /*Development*/
+    def baseurl_dev = "\"https://startfish.co/v1/\""
+    def host_dev = "\"starfish.production.co\""
+    def securityKey_dev = "\"HFHIDBDGE_FHHEFHDF-DHHBDJJ\""
+
+    baseConfig = [
+
+            baseurl : baseurl,
+            host : host,
+            securityKey : securityKey,
+
+            baseurl_stg : baseurl_stg,
+            host_stg : host_stg,
+            securityKey_stg : securityKey_stg,
+
+            baseurl_dev : baseurl_dev,
+            host_dev : host_dev,
+            securityKey_dev : securityKey_dev
+
+    ]
+}
