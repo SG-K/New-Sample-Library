@@ -1,6 +1,7 @@
 package com.m.samplelibray1
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.m.samplelibray1.base.BaseViewModel
 import com.m.samplelibray1.models.DashboardModel
@@ -35,10 +36,12 @@ class SearchViewModel  constructor(
                 Timber.v("request sucess")
                 it?.let {dashboardModel ->
                     if (dashboardModel.error == null){
+                        Log.v("Start_fish_log","views sucess "+dashboardModel.listCards?.size)
                         Timber.v("%s request sucess views %s",LOG_TAG,dashboardModel.listCards?.size)
                         Timber.v("%s request sucess total %s",LOG_TAG,dashboardModel)
                         filteredTvShowsLiveData.postValue(dashboardModel.listCards as ArrayList)
                     }else{
+                        Log.v("Start_fish_log","views fail "+dashboardModel.error)
                         Timber.v("%s request fail %s",LOG_TAG,dashboardModel.error);
                     }
                 }
