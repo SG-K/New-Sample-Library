@@ -1,6 +1,7 @@
 package com.m.samplelibray1.data
 
 import co.starfish.sharedpreference.PreferenceHelper
+import com.m.samplelibray1.BuildConfig
 import com.m.samplelibray1.utils.Constants.ACCEPT
 import com.m.samplelibray1.utils.Constants.AUTH
 import com.m.samplelibray1.utils.Constants.CONTENT_TYPE
@@ -19,9 +20,9 @@ class HeaderInterceptor(private val preferenceHelper: PreferenceHelper) : Interc
         val original = chain.request()
         val requestBuilder = original.newBuilder()
 
-        requestBuilder.addHeader(AUTH, "23AEE27A-3A81-4817-B6D8-624F125EFD55")
+        requestBuilder.addHeader(AUTH, BuildConfig.securityKey)
 //        requestBuilder.addHeader(CONTENT_TYPE, "application/json; charset=utf-8")
-        requestBuilder.addHeader(HOST, "rest1.jboomer.in")
+        requestBuilder.addHeader(HOST, BuildConfig.host)
 //        requestBuilder.addHeader(ACCEPT, "application/json")
 //        requestBuilder.addHeader(LANG, "en")
 //        requestBuilder.addHeader(OS_VERSION, Integer.toString(Build.VERSION.SDK_INT))

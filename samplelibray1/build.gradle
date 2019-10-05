@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.mobbeel.plugin'
 
 
 android {
@@ -19,13 +20,21 @@ android {
         vectorDrawables.useSupportLibrary = true
         multiDexEnabled true
 
+        buildConfigField "String", "base_url", "\"https://rest.jboomer.in/API/\""
+        buildConfigField "String", "host", "\"rest1.jboomer.in\""
+        buildConfigField "String", "securityKey", "\"23AEE27A-3A81-4817-B6D8-624F125EFD55\""
+
     }
+
+
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+
     }
 
     compileOptions {
@@ -56,65 +65,64 @@ def multidex = '2.0.1'
 def playServicesLocation = '17.0.0'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.appcompat:appcompat:1.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     /*Multidex*/
-    implementation "androidx.multidex:multidex:$multidex"
+    api "androidx.multidex:multidex:$multidex"
 
     /*Timber*/
-    implementation "com.jakewharton.timber:timber:$timber_version"
+    api "com.jakewharton.timber:timber:$timber_version"
 
     /*Kotlin*/
-    implementation "androidx.core:core-ktx:$app_compact_version"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "androidx.core:core-ktx:$app_compact_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     /*support libraries*/
-    implementation "androidx.appcompat:appcompat:$app_compact_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    api "androidx.appcompat:appcompat:$app_compact_version"
+    api "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
     /*Rxjava & RxAndroid*/
-    implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
-    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlin"
-//    implementation "com.github.tbruyelle:rxpermissions:$rxPermissions"
+    api "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+    api "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    api "io.reactivex.rxjava2:rxkotlin:$rxKotlin"
+//    api "com.github.tbruyelle:rxpermissions:$rxPermissions"
     api "com.jakewharton.rxbinding2:rxbinding:$rxKotlin"
-    implementation "com.jakewharton.rxbinding:rxbinding-design:$rxBindingDesign"
+    api "com.jakewharton.rxbinding:rxbinding-design:$rxBindingDesign"
 
     /*Lifecycle*/
-    implementation "android.arch.lifecycle:extensions:$lifecycleArchVersion"
+    api "android.arch.lifecycle:extensions:$lifecycleArchVersion"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycleArchVersion"
     kapt "android.arch.lifecycle:compiler:$lifecycleArchVersion"
 
     /*retrofit*/
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit"
-    implementation "com.squareup.okhttp3:okhttp:$okHttp"
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofit"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit"
+    api "com.squareup.retrofit2:retrofit:$retrofit"
+    api "com.squareup.okhttp3:okhttp:$okHttp"
+    api "com.squareup.retrofit2:converter-moshi:$retrofit"
+    api "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingInterceptorVersion"
 
     /*ImageLoading*/
-    implementation "com.github.bumptech.glide:glide:$glide"
+    api "com.github.bumptech.glide:glide:$glide"
     kapt "com.github.bumptech.glide:compiler:$glide"
 
     /*Moshi*/
-    implementation "com.squareup.moshi:moshi:$moshi"
-    implementation "com.squareup.moshi:moshi-kotlin:$moshi"
+    api "com.squareup.moshi:moshi:$moshi"
+    api "com.squareup.moshi:moshi-kotlin:$moshi"
     kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi"
 
     /*Stetho*/
-    implementation "com.facebook.stetho:stetho-okhttp3:$stetho"
+    api "com.facebook.stetho:stetho-okhttp3:$stetho"
 
     /*ProgressBar*/
-    implementation "com.pnikosis:materialish-progress:$progressWheel"
+    api "com.pnikosis:materialish-progress:$progressWheel"
 
     /*play services*/
-//    implementation playServiceDependencies.location
-
+//    api playServiceDependencies.location
 
 }
 repositories {

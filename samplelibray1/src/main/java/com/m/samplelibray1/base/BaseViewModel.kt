@@ -92,7 +92,7 @@ open class BaseViewModel  constructor() : ViewModel() {
             return it
         }
         val buildder = Retrofit.Builder()
-            .baseUrl("https://rest.jboomer.in/API/")
+            .baseUrl(BuildConfig.base_url)
             .client(okHttpClient)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
